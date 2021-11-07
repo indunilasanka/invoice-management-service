@@ -1,5 +1,6 @@
-package com.example.invoice.configuration;
+package com.demo.ims.configuration;
 
+import com.demo.ims.model.dto.StatusUpdateRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,19 +20,20 @@ public class SwaggerConfiguration {
 
     @Bean
     public Docket api() {
-
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
-                .paths(PathSelectors.regex("^(/v1/ims/).*"))
+                .paths(PathSelectors.regex("^(/ims/v1/).*"))
                 .build()
                 .useDefaultResponseMessages(false)
+                .ignoredParameterTypes(
+                        StatusUpdateRequest.class)
                 .apiInfo(apiInfo());
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfo(
-                "Invoice Service",
+                "Invoice Management Service",
                 "APIs to alter/expose invoices details",
                 "v1",
                 "Terms of service",

@@ -11,15 +11,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/v1/ims/invoices/PENDING?offset=0&limit=10",
+					"raw": "http://localhost:8080/ims/v1/invoices/PENDING?offset=0&limit=10",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"v1",
 						"ims",
+						"v1",
 						"invoices",
 						"PENDING"
 					],
@@ -52,15 +52,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/v1/ims/invoices/1",
+					"raw": "http://localhost:8080/ims/v1/invoices/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"v1",
 						"ims",
+						"v1",
 						"invoices",
 						"1"
 					]

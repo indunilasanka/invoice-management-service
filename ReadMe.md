@@ -31,3 +31,13 @@ Invoice data management service
 
 
 Since this app is running in local environment we can save our properties in local properties file. But when we deploy we need to maintain environment specific properties, In that case we need to store secure properties in a cloud store(ssm) and can access through spring-cloud
+
+* Backend APIs support pagination 
+* Data JPA used for ORM mapping 
+* Swagger integrated 
+* Global Exception Handler 
+* Correlation Id 
+* Logback 
+* Hikari connection pool
+* CORs enabled(for testing)
+* Unit testing for a few service logic

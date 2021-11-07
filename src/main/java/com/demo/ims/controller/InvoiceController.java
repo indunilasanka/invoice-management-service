@@ -1,10 +1,10 @@
 package com.demo.ims.controller;
 
+import com.demo.ims.model.dto.PageResponse;
 import com.demo.ims.model.dto.StatusUpdateRequest;
 import com.demo.ims.model.dto.StatusUpdateResponse;
 import com.demo.ims.model.entity.Invoice;
 import com.demo.ims.service.InvoiceService;
-import com.demo.ims.model.dto.PageResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +19,7 @@ import static com.demo.ims.common.Constant.DEFAULT_LIMIT;
 import static com.demo.ims.common.Constant.DEFAULT_OFFSET;
 
 @RestController
-@RequestMapping("/v1/ims/")
+@RequestMapping("/ims/v1/")
 public class InvoiceController {
     private final InvoiceService invoiceService;
 
