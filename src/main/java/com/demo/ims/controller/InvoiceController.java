@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.demo.ims.common.Constant.DEFAULT_LIMIT;
+import static com.demo.ims.common.Constant.DEFAULT_OFFSET;
+
 @RestController
 @RequestMapping("/v1/ims/")
 public class InvoiceController {
@@ -27,8 +30,8 @@ public class InvoiceController {
     @GetMapping({"invoices", "invoices/{status}"})
     public ResponseEntity<PageResponse<Invoice>> getInvoices(
             @PathVariable(value = "status", required = false) String status,
-            @RequestParam(name = "offset", required = false, defaultValue = "0") int offset,
-            @RequestParam(name = "limit", required = false, defaultValue = "10") int limit
+            @RequestParam(name = "offset", required = false, defaultValue = DEFAULT_OFFSET) int offset,
+            @RequestParam(name = "limit", required = false, defaultValue = DEFAULT_LIMIT) int limit
     ) {
         PageResponse<Invoice> response = invoiceService.getInvoicesByStatus(status, offset, limit);
         return ResponseEntity.status(HttpStatus.OK).body(response);
