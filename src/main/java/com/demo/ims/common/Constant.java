@@ -3,7 +3,7 @@ package com.demo.ims.common;
 public class Constant {
 
     public static final String DEFAULT_OFFSET = "0";
-    public static final String DEFAULT_LIMIT = "10";
+    public static final String DEFAULT_LIMIT = "100";
     public static final String CORRELATION_ID_LOG = "correlationId";
 
     public static class Messages {

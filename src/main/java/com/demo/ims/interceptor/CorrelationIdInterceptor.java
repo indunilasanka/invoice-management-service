@@ -23,18 +23,18 @@ public class CorrelationIdInterceptor implements HandlerInterceptor {
         final String clientIp = request.getHeader(Constant.RequestHeader.CLIENT_IP);
         String requestPath = request.getServletPath();
 
+        enableCors(response); //temporally enable cors to connect with frontend app locally
         response.setHeader(Constant.RequestHeader.CORRELATION_ID, correlationId);
+        MDC.put(Constant.CORRELATION_ID_LOG, correlationId); // save in MDC for logging purposes(logback is configured to use correlation id)
+        LOGGER.debug("New request - correlationId: [{}], clientIP: [{}], path: [{}]", correlationId, clientIp, requestPath);
+        return true;
+    }
 
-        response.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+    private void enableCors(HttpServletResponse response){
+        response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-Syy-Correlation-Id");
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS,HEAD");
-        //credentials: true, origin: true,
-
-        MDC.put(Constant.CORRELATION_ID_LOG, correlationId); // save in MDC for logging purposes(logback is configured to use correlation id)
-
-        LOGGER.info("New request - correlationId: [{}], clientIP: [{}], path: [{}]", correlationId, clientIp, requestPath);
-        return true;
     }
 
 
