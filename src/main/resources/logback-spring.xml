@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender class="ch.qos.logback.core.ConsoleAppender"
+              name="Console">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d{YYYY-MM-dd-HH:mm:ss.SSS}-%(%level)-[%(%t)]-[%(%replace(%X{correlationId}){'^$','system'})]-%(%C{1.})-%X{dd.trace_id:-0}
+                %X{dd.span_id:-0}-%msg%throwable%n
+            </Pattern>
+        </layout>
+    </appender>
+
+    <logger additivity="false" level="trace" name="com.sysco">
+        <appender-ref ref="Console"/>
+    </logger>
+
+    <property name="LOGS" value="./logs"/>
+
+    <root level="info">
+        <appender-ref ref="Console"/>
+    </root>
+
+</configuration>
