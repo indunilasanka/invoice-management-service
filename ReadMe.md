@@ -24,7 +24,7 @@ Invoice data management service
     ii. Run jar app -> ``java -jar invoice-management-service-0.0.1.jar``
 
 
-5. App will up and run in 8080 port. By default, it will take properties from local.properties file. Make sure to update the properties with your properties
+5. App will up and running in 8080 port. By default, it will take properties from local.properties file. Make sure to update the properties with your properties
 
 6. You can test the endpoints using the postman.json or using the frontend app
 
