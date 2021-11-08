@@ -35,7 +35,7 @@ Since this app is running in local environment we can save our properties in loc
 * Backend APIs support pagination 
 * Data JPA used for ORM mapping 
 * Swagger integrated 
-* Global Exception Handler 
+* Error Handling/Global Exception Handler 
 * Correlation Id 
 * Logback 
 * Hikari connection pool
